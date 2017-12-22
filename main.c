@@ -4,6 +4,7 @@
 //#include "excairo.c"
 #include <maze.h>
 #include <randomMouseSolving.h>
+#include <pledgeSolving.h>
 
 int main(int argc, char **argv)
 {
@@ -23,8 +24,10 @@ int main(int argc, char **argv)
     scanf("%d", &height);
     
     Maze *maze = mazeInit(width, height, cellValue);
-    srand(time(NULL));    
-    DeepFirstSearch(*maze);
+    srand(time(NULL));
+    
+    backtrackingGeneration(*maze);
+    solveMazePledge(*maze);
 
 	return 0;
 }

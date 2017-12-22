@@ -53,6 +53,8 @@ void drawMaze(struct Maze maze)
         {
             if (maze.cells[i][j].north)
                 printf("####");
+            else
+                printf("    ");
         }
         
         printf("\n");
@@ -61,9 +63,13 @@ void drawMaze(struct Maze maze)
         {            
             if (maze.cells[i][j].west)
                 printf("# ");
+            else 
+                printf("  ");
                 
             if (maze.cells[i][j].est)
                 printf(" #");
+            else 
+                printf("  ");
         }
         
         printf("\n");
@@ -72,13 +78,15 @@ void drawMaze(struct Maze maze)
         {
             if (maze.cells[i][j].south)
                 printf("####");
+            else
+                printf("    ");
         }
         
         printf("\n");
     }
 }
 
-void DeepFirstSearch(struct Maze maze)
+void backtrackingGeneration(struct Maze maze)
 {
     int currentLine = rand() % maze.height;
     int currentColumn = rand() % maze.width;
@@ -222,5 +230,4 @@ void DeepFirstSearch(struct Maze maze)
     }
     
     printf("Stack empty: %s\n", isEmpty() ? "true":"false");
-    solveMazeRandomMouse(maze);
 }
