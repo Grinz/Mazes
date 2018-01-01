@@ -79,6 +79,7 @@ Maze* initMaze(int m, int n)
 		int wallChoosen=rand_a_b( 1, 3);
 
 
+
 		if(wallChoosen==1)
         {
 			if(nbAl>n)
@@ -103,7 +104,8 @@ Maze* initMaze(int m, int n)
 				}
 			}
 		}
-
+  if(nbAl%m!=0)
+            {
 	if(wallChoosen==2)
      {
         if(nbAl>0)
@@ -130,6 +132,7 @@ Maze* initMaze(int m, int n)
 			}
         }
 	}
+            }
       int firstCellValue=0;
     int z;
       for(z=0;z<m*n;z++)
@@ -155,6 +158,24 @@ Maze* initMaze(int m, int n)
                 printf("\n");
             }
             printf("%4d", oMaze->array[y]->cellValue);
+    }
+     printf("\n");
+    for(y=0;y<m*n;y++)
+    {
+         if(y%m==0)
+            {
+                printf("\n");
+            }
+            printf("%4d", oMaze->array[y]->wallAbove);
+    }
+     printf("\n");
+    for(y=0;y<m*n;y++)
+    {
+         if(y%m==0)
+            {
+                printf("\n");
+            }
+            printf("%4d", oMaze->array[y]->wallLeft);
     }
     return oMaze;
  }
